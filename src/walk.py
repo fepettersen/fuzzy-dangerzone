@@ -24,6 +24,7 @@ class Walk:
 		self._x0 = 0 - self.dx/2.0
 
 	def AddWalker(self,pos):
+		# print "Adding walker"
 		tmp = Walker(pos)
 		self.walkers.append(tmp)
 

@@ -28,5 +28,6 @@ for i in xrange(T):
 	stuff.Solve()
 	im.append(mpl.plot(x,stuff.u,'b-'))
 	# im.append(mpl.plot(stuff.C,'b-'))
+	print len(stuff.walksolver.walkers)
 ani = animation.ArtistAnimation(fig,im)
 mpl.show()
