@@ -7,7 +7,7 @@ def initial(x,x0=0.5,sigma=0.2):
 
 N = 32
 T = 20
-limit = 0
+limit = 3
 
 start = 0
 stop = 1
@@ -21,11 +21,12 @@ D = np.ones(N)
 im = []
 fig = mpl.figure()
 
-stuff = Combine(dt,dx,dy)
+stuff = Combine(dt,dx,dy,limit)
 stuff.SetInitialCondition(u0,D[limit:])
 
 for i in xrange(T):
 	stuff.Solve()
 	im.append(mpl.plot(x,stuff.u,'b-'))
+	# im.append(mpl.plot(stuff.C,'b-'))
 ani = animation.ArtistAnimation(fig,im)
 mpl.show()

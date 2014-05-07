@@ -195,14 +195,13 @@ class Diff:
 		x = np.zeros(m)
 		btemp = b[0]
 		x[0] = up[0]/btemp;
-		for i in xrange(m):
+		for i in xrange(1,m):
 			#Forward substitution
-			# print i
 			temp[i] = c[i-1]/btemp
 			btemp = b[i]-a[i-1]*temp[i];
 			x[i] = (up[i] -a[i-1]*x[i-1])/btemp;
 
-		for i in xrange(m-2,0,-1):
+		for i in xrange(m-2,-1,-1):
 			#Backward substitution
 			x[i] -= temp[i+1]*x[i+1];
 
